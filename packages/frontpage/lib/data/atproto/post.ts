@@ -31,6 +31,10 @@ export async function createPost({ title, url }: PostInput) {
     record,
     collection: PostCollection,
   });
+  console.log({ result })
+  const did = "did:plc:mqrngrpj4tjk7bmnl6c4hiah" as DID
+  const r = await getPost({ rkey: result.uri.rkey, repo: did })
+  console.log({ r })
 
   return {
     rkey: result.uri.rkey,

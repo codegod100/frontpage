@@ -7,17 +7,17 @@ source "$(dirname "$0")/../pds.env"
 
 # curl a URL and fail if the request fails.
 function curl_cmd_get {
-  curl --fail --silent --show-error "$@"
+  curl --k -fail --silent --show-error "$@"
 }
 
 # curl a URL and fail if the request fails.
 function curl_cmd_post {
-  curl --fail --silent --show-error --request POST --header "Content-Type: application/json" "$@"
+  curl -k --fail --silent --show-error --request POST --header "Content-Type: application/json" "$@"
 }
 
 # curl a URL but do not fail if the request fails.
 function curl_cmd_post_nofail {
-  curl --silent --show-error --request POST --header "Content-Type: application/json" "$@"
+  curl -k --silent --show-error --request POST --header "Content-Type: application/json" "$@"
 }
 
 USERNAME="${1:-}"

@@ -140,7 +140,7 @@ export const getPost = cache(async (authorDid: DID, rkey: string) => {
     )
     .leftJoin(userHasVoted, eq(userHasVoted.postId, schema.Post.id))
     .limit(1);
-
+  console.log({ rows })
   const row = rows[0];
   if (!row) return null;
 
@@ -211,10 +211,10 @@ export async function unauthed_createPost({
         color: 10181046,
         author: bskyProfile
           ? {
-              name: `@${bskyProfile.handle}`,
-              icon_url: bskyProfile.avatar,
-              url: `https://frontpage.fyi/profile/${bskyProfile.handle}`,
-            }
+            name: `@${bskyProfile.handle}`,
+            icon_url: bskyProfile.avatar,
+            url: `https://frontpage.fyi/profile/${bskyProfile.handle}`,
+          }
           : undefined,
         fields: [
           {

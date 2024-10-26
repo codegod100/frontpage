@@ -43,7 +43,7 @@ export default async function Post(props: { params: Promise<PostPageParams> }) {
   const params = await props.params;
   const { post, authorDid } = await getPostPageData(params);
   const comments = await getCommentsForPost(post.id);
-
+  console.log({ post })
   return (
     <>
       <LinkAlternateAtUri

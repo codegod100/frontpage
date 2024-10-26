@@ -21,6 +21,7 @@ import { redirect } from "next/navigation";
 
 export async function signIn(identifier: string) {
   const did = await getDidFromHandleOrDid(identifier);
+  console.log({ did })
   if (!did) {
     return {
       error: "DID_NOT_FOUND" as const,

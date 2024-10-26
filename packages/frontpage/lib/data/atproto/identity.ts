@@ -69,6 +69,7 @@ async function getAtprotoDidFromDns(handle: string) {
 
 const getAtprotoFromHttps = unstable_cache(
   async (handle: string) => {
+    console.log("in from https")
     let res;
     const timeoutSignal = AbortSignal.timeout(1500);
     try {
@@ -112,6 +113,6 @@ export const getVerifiedHandle = cache(async (did: DID) => {
   if (!plcHandle) return null;
 
   const resolvedDid = await getVerifiedDid(plcHandle);
-
+  console.log({ resolvedDid })
   return resolvedDid ? plcHandle : null;
 });

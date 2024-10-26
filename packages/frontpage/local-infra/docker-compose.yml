@@ -63,7 +63,7 @@ services:
       dockerfile: ./packages-rs/drainpipe/Dockerfile
       context: ../../../
     environment:
-      FRONTPAGE_CONSUMER_URL: http://host.docker.internal:3000/api/receive_hook
+      FRONTPAGE_CONSUMER_URL: http://10.253.201.233:3000/api/receive_hook
       FRONTPAGE_CONSUMER_SECRET: secret
       RELAY_URL: ws://pds:3000
     volumes:
@@ -83,7 +83,7 @@ services:
     container_name: cloudflared_tunnel
     image: cloudflare/cloudflared
     restart: unless-stopped
-    command: tunnel --url http://host.docker.internal:3000
+    command: tunnel --url http://10.253.201.233:3000
     extra_hosts:
       - "host.docker.internal:host-gateway"
 

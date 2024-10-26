@@ -69,7 +69,7 @@ async function DidHistory({ identifier }: { identifier: string }) {
   }
   const did = identity.didDocument.id;
 
-  const response = await fetch(`https://plc.directory/${did}/log/audit`);
+  const response = await fetch(`https://plc.dev.unravel.fyi/${did}/log/audit`);
   if (!response.ok) {
     throw new Error(`Failed to fetch history: ${response.statusText}`);
   }
@@ -114,16 +114,16 @@ async function DidHistory({ identifier }: { identifier: string }) {
               type:
                 service.type !== previousService.type
                   ? {
-                      from: previousService.type,
-                      to: service.type,
-                    }
+                    from: previousService.type,
+                    to: service.type,
+                  }
                   : null,
               endpoint:
                 service.endpoint !== previousService.endpoint
                   ? {
-                      from: previousService.endpoint,
-                      to: service.endpoint,
-                    }
+                    from: previousService.endpoint,
+                    to: service.endpoint,
+                  }
                   : null,
             };
           })
@@ -172,7 +172,7 @@ async function DidHistory({ identifier }: { identifier: string }) {
             </p>
             <ul>
               {alsoKnownAsAdded.length === 1 &&
-              alsoKnownAsRemoved.length === 1 ? (
+                alsoKnownAsRemoved.length === 1 ? (
                 <li>
                   Alias changed from{" "}
                   <Link href={getAtUriPath(new AtUri(alsoKnownAsRemoved[0]!))}>

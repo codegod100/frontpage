@@ -14,6 +14,7 @@ export async function getPostPageData(params: PostPageParams) {
     notFound();
   }
   const post = await getPost(authorDid, params.postRkey);
+  console.log({ post })
   if (!post) {
     notFound();
   }
